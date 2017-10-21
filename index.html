@@ -1,49 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-	<title>Choo Choo Time Teller</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Train Schedule</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css">
+
+	<!-- Firebase JavaScript Link -->
+   <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
+
 <body>
-
-<div id="container">
-	
-	<div id="headerContainer">
-
-	Choo Choo Mothafreaker
-
-	<div>Hop Aboard the Choo Choo Machine</div>
-
-	</div>
-
-	<div id="trainScheduleTable">Add A Train Below!</div>
-
-	<div id="addTrain">
-		
-		<form>
-			Train Name
-			<input type="text" name="name" placeholder="Soul Train"> 
-		</form>
-
-		<form>
-			Destination
-			<input type="text" name="name" placeholder="Halifax"> 
-		</form>
-
-		<form>
-			First Train Time (HH:mm - military time)
-			<input type="text" name="name" placeholder="17:38"> 
-		</form>
-
-		<form>
-			Frequency (min)
-			<input type="text" name="name" placeholder="42"> 
-		</form>
-
+	<div class="container">
+		<div class="panel panel-default headliner">
+			<!-- <div class="jumbotron"> -->
+				<h1 class="display-1">Check The Train Schedule</h1>
+				<p>The train times are listed below</p>
+			<!-- </div> -->
 		</div>
-
 	</div>
 
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Current Train Schedule</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table" id="table">
+					<thead>
+						<tr>
+							<th>Train Name</th>
+							<th>Destination</th>
+							<th>Frequency (min)</th>
+							<th>Next Arrival</th>
+							<th>Minutes Away</th>
+						</tr>
+					</thead>
+					<tbody id="schedule-body">
+						
+					</tbody>
+				</table>
+
+				<button class="btn" id="clear-train" type="submit">Clear</button>
+			</div>
+		</div>
+	
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			  <h3 class="panel-title">Add Train</h3>
+			</div>
+			<div class="panel-body">
+				<form role="form">
+	              <div class="form-group">
+	                <label for="name-input">Train Name:</label>
+	                <input class="form-control" id="train-name" type="text">
+	              </div>
+	              <div class="form-group">
+	                <label for="email-input">Destination:</label>
+	                <input class="form-control" id="destination" type="text">
+	              </div>
+	              <div class="form-group">
+	                <label for="age-input">First Train Time (HH:mm - military time)</label>
+	                <input class="form-control" id="first-train-time" type="text">
+	              </div>
+	              <div class="form-group">
+	                <label for="comment-input">Frequency (min)</label>
+	                <input class="form-control" id="frequency" type="text">
+	              </div>
+	              <button class="btn btn-success" id="add-train" type="submit">Submit</button>
+	            </form>
+	        </div>
+	    </div>
+
+   </div>
+	
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="assets/app.js"></script>	
+	
 </body>
 </html>
